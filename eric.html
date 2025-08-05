@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal do Aluno</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilo para usar a fonte Inter */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* Efeito de transição para a barra lateral */
+        #sidebar {
+            transition: transform 0.3s ease-in-out;
+        }
+        /* Efeito de transição para o overlay */
+        #sidebar-overlay {
+            transition: opacity 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div id="app" class="relative min-h-screen">
+        <!-- Sidebar (Menu Lateral) -->
+        <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden"></div>
+        <aside id="sidebar" class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg z-40 transform -translate-x-full">
+            <div class="p-5 border-b">
+                <h2 class="text-xl font-semibold">Menu</h2>
+            </div>
+            <nav class="mt-4">
+                <a href="#" class="flex items-center px-5 py-3 text-gray-700 hover:bg-gray-100">
+                    <i data-lucide="home" class="w-5 h-5 mr-3"></i>
+                    Início
+                </a>
+                <a href="#" class="flex items-center px-5 py-3 text-gray-700 hover:bg-gray-100">
+                    <i data-lucide="book-open" class="w-5 h-5 mr-3"></i>
+                    Meu Curso
+                </a>
+                <a href="#" class="flex items-center px-5 py-3 text-gray-700 hover:bg-gray-100">
+                    <i data-lucide="dollar-sign" class="w-5 h-5 mr-3"></i>
+                    Financeiro
+                </a>
+                <a href="#" class="flex items-center px-5 py-3 text-gray-700 hover:bg-gray-100">
+                    <i data-lucide="file-text" class="w-5 h-5 mr-3"></i>
+                    Secretaria
+                </a>
+                <a href="#" class="flex items-center px-5 py-3 text-gray-700 hover:bg-gray-100">
+                    <i data-lucide="inbox" class="w-5 h-5 mr-3"></i>
+                    Minhas Solicitações
+                </a>
+                <a href="#" class="flex items-center px-5 py-3 text-gray-700 hover:bg-gray-100">
+                    <i data-lucide="play-square" class="w-5 h-5 mr-3"></i>
+                    Estudar
+                    <i data-lucide="external-link" class="w-4 h-4 ml-auto"></i>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Header -->
+        <header class="bg-white shadow-md sticky top-0 z-20">
+            <div class="container mx-auto px-4">
+                <div class="flex items-center justify-between h-16">
+                    <!-- Ícone do Menu Hamburguer -->
+                    <button id="menu-button" class="text-gray-600">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                    <!-- Logo -->
+                    <div class="flex-shrink-0">
+                         <img src="https://lh3.googleusercontent.com/pw/AP1GczM8Fl3F3agpe98Wyhrxs0U7SnhnaGfUsnXSvewfQ_wpE19v54laHdJBVvoRsCiVyifohyT7LcO4c1B9Ek32SOgDSpLBGmS2lp_5R8_TApI6tLMLCrfAaGIApsDbkNspN5l45HSJrYeI2drb4nU8EYjLMg=w137-h141-s-no-gm?authuser=0" alt="Logo da Anhanguera" class="w-8 h-auto">
+                    </div>
+                    <!-- Ícones da Direita -->
+                    <div class="flex items-center space-x-4">
+                        <button class="text-gray-600"><i data-lucide="volume-2" class="w-6 h-6"></i></button>
+                        <button class="relative text-gray-600">
+                            <i data-lucide="bell" class="w-6 h-6"></i>
+                            <span class="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-xs text-white">9</span>
+                        </button>
+                        <button class="text-gray-600"><i data-lucide="settings" class="w-6 h-6"></i></button>
+                        <button class="text-blue-600"><i data-lucide="phone" class="w-6 h-6"></i></button>
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczMtVsnm1jKFb0dN8TsxUe39h5_lAfN5TYaFV06Vwhkhl6_B2ckSaEi5t_c4hZUVs9HXSJj2UHL8ijIBSF1Fa5XsbkHbHluPKVLemhmeH5qbsZrCRQbsOdg5rfKM0IVxZLPcwq6bkAFZ50lj4MOi2x6dJg=w780-h753-s-no-gm?authuser=0" alt="Foto do perfil do usuário" class="w-8 h-8 rounded-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Conteúdo Principal -->
+        <main class="p-4 pb-24">
+            <div class="mb-4">
+                <button class="w-full bg-blue-600 text-white font-semibold py-2.5 px-4 rounded-lg shadow hover:bg-blue-700 transition">
+                    Solicitações Gerais
+                </button>
+            </div>
+
+            <div class="flex justify-between items-center mb-4 text-sm font-medium">
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-600">Atividades Complementares</a>
+                    <a href="#" class="text-gray-600">Registro de Atendimento</a>
+                </div>
+                <a href="#" class="text-blue-600">Todas</a>
+            </div>
+
+            <p class="text-gray-500 text-sm mb-4">8 chamados encontrados.</p>
+
+            <!-- Card de Solicitação -->
+            <div class="bg-white rounded-lg shadow p-4">
+                <div class="flex items-center mb-3">
+                    <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Aberta</span>
+                    <i data-lucide="help-circle" class="w-4 h-4 text-gray-500"></i>
+                </div>
+                <h3 class="font-bold text-lg text-gray-800 mb-1">Carteirinha Digital</h3>
+                <p id="opening-date" class="text-sm text-gray-500"></p>
+                <p class="text-sm text-gray-500 mb-4">Protocolo: CS38825529</p>
+
+                <!-- Card Interno -->
+                <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 flex items-center justify-between">
+                    <div>
+                        <h4 class="font-semibold text-gray-800">Carteirinha Digital</h4>
+                        <p id="availability-date" class="text-xs text-gray-500"></p>
+                    </div>
+                    <button id="show-card-button" class="flex items-center text-blue-600 font-semibold text-sm">
+                        Mostrar
+                        <i data-lucide="eye" class="w-5 h-5 ml-2"></i>
+                    </button>
+                </div>
+
+                <div class="mt-4 pt-4 border-t border-gray-200">
+                    <p class="text-sm text-gray-600"><span class="font-bold">Importante:</span> Seu documento fica disponível por 30 dias a partir da data de emissão. Para abri-lo digite os 3 primeiros números do seu CPF.</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Rodapé de Navegação -->
+        <footer class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-20">
+            <nav class="flex justify-around">
+                <a href="#" class="flex flex-col items-center justify-center text-center text-gray-600 hover:text-blue-600 p-2 w-1/5">
+                    <i data-lucide="home" class="w-6 h-6 mb-1"></i>
+                    <span class="text-xs">Início</span>
+                </a>
+                <a href="#" class="flex flex-col items-center justify-center text-center text-gray-600 hover:text-blue-600 p-2 w-1/5">
+                    <i data-lucide="book-open" class="w-6 h-6 mb-1"></i>
+                    <span class="text-xs">Meu curso</span>
+                </a>
+                <a href="#" class="flex flex-col items-center justify-center text-center text-gray-600 hover:text-blue-600 p-2 w-1/5">
+                    <i data-lucide="dollar-sign" class="w-6 h-6 mb-1"></i>
+                    <span class="text-xs">Financeiro</span>
+                </a>
+                <a href="#" class="flex flex-col items-center justify-center text-center text-gray-600 hover:text-blue-600 p-2 w-1/5">
+                    <i data-lucide="file-text" class="w-6 h-6 mb-1"></i>
+                    <span class="text-xs">Secretaria</span>
+                </a>
+                <a href="#" class="flex flex-col items-center justify-center text-center text-blue-600 bg-blue-50 p-2 w-1/5 rounded-t-lg">
+                    <i data-lucide="inbox" class="w-6 h-6 mb-1"></i>
+                    <span class="text-xs font-bold">Solicitações</span>
+                </a>
+            </nav>
+        </footer>
+        
+        <!-- Modal da Imagem da Carteirinha -->
+        <div id="image-modal" class="fixed inset-0 bg-black bg-opacity-70 z-50 hidden flex items-center justify-center p-4">
+            <div class="bg-white rounded-lg shadow-xl w-full max-w-sm p-2 relative">
+                <button id="close-image-modal-button" class="absolute -top-3 -right-3 text-white bg-gray-800 rounded-full p-1 z-10">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+                <img id="modal-image-content" src="" alt="Carteirinha Digital" class="w-full h-auto rounded-lg">
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Inicializa os ícones do Lucide
+        lucide.createIcons();
+        
+        // Lógica para definir a data de abertura dinamicamente
+        const setOpeningDate = () => {
+            const openingDateElement = document.getElementById('opening-date');
+            const now = new Date();
+            // Subtrai 3 meses da data atual
+            now.setMonth(now.getMonth() - 3);
+
+            const day = String(now.getDate()).padStart(2, '0');
+            const month = String(now.getMonth() + 1).padStart(2, '0'); // Mês é 0-indexado
+            const year = now.getFullYear();
+
+            const formattedDate = `${day}/${month}/${year}`;
+            const fixedTime = '22:03:00';
+
+            openingDateElement.textContent = `Abertura: ${formattedDate} às ${fixedTime}`;
+        };
+
+        // Lógica para definir a data de disponibilidade dinamicamente
+        const setAvailabilityDate = () => {
+            const availabilityDateElement = document.getElementById('availability-date');
+            const now = new Date();
+            // Adiciona 1 ano e 5 meses
+            now.setFullYear(now.getFullYear() + 1);
+            now.setMonth(now.getMonth() + 5);
+
+            const day = String(now.getDate()).padStart(2, '0');
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const year = now.getFullYear();
+
+            const formattedDate = `${day}/${month}/${year}`;
+            availabilityDateElement.textContent = `Disponível até ${formattedDate}`;
+        };
+
+        // Lógica para o Modal da Imagem
+        const showCardButton = document.getElementById('show-card-button');
+        const imageModal = document.getElementById('image-modal');
+        const modalImageContent = document.getElementById('modal-image-content');
+        const closeImageModalButton = document.getElementById('close-image-modal-button');
+
+        const openImageModal = () => {
+            const extensions = ['png', 'jpg', 'jpeg', 'gif', 'webp'];
+            const baseName = 'eric';
+
+            // Função que tenta carregar uma imagem e retorna uma promessa
+            const testImage = (url) => {
+                return new Promise((resolve, reject) => {
+                    const img = new Image();
+                    img.onload = () => resolve(url);
+                    img.onerror = () => reject();
+                    img.src = url;
+                });
+            };
+
+            // Função assíncrona para procurar a imagem
+            const findImage = async () => {
+                for (const ext of extensions) {
+                    try {
+                        const url = `${baseName}.${ext}`;
+                        await testImage(url); // Espera a tentativa de carregar a imagem
+                        modalImageContent.src = url; // Se funcionar, define o src
+                        imageModal.classList.remove('hidden'); // Mostra o modal
+                        return; // Sai da função após encontrar a imagem
+                    } catch (error) {
+                        // Se der erro, continua para a próxima extensão
+                        console.log(`Imagem ${baseName}.${ext} não encontrada, tentando a próxima...`);
+                    }
+                }
+                
+                // Se o loop terminar e nenhuma imagem for encontrada
+                modalImageContent.src = `https://placehold.co/400x600/CCCCCC/FFFFFF?text=Imagem+${baseName}+n%C3%A3o+encontrada`;
+                imageModal.classList.remove('hidden');
+            };
+
+            findImage();
+        };
+
+        const closeImageModal = () => {
+            imageModal.classList.add('hidden');
+            modalImageContent.src = ''; // Limpa o src ao fechar para forçar a recarga na próxima vez
+        };
+
+        showCardButton.addEventListener('click', openImageModal);
+        closeImageModalButton.addEventListener('click', closeImageModal);
+        
+        // Fecha o modal se clicar fora da imagem
+        imageModal.addEventListener('click', (event) => {
+            if (event.target === imageModal) {
+                closeImageModal();
+            }
+        });
+
+        // Lógica para a Sidebar
+        const menuButton = document.getElementById('menu-button');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+        const toggleSidebar = () => {
+            sidebar.classList.toggle('-translate-x-full');
+            sidebarOverlay.classList.toggle('hidden');
+        };
+
+        menuButton.addEventListener('click', toggleSidebar);
+        sidebarOverlay.addEventListener('click', toggleSidebar);
+
+        // Chama as funções que precisam rodar no carregamento da página
+        document.addEventListener('DOMContentLoaded', () => {
+            setOpeningDate();
+            setAvailabilityDate();
+        });
+
+    </script>
+</body>
+</html>
